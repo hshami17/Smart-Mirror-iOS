@@ -17,17 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomRightModule: ModuleImageView!
     @IBOutlet weak var bottomModule: ModuleImageView!
 
-    var modules = [TypeKeys: Module]()
+//    var modules = [TypeKeys: Module]()
+    
+    let TOPRIGHT_CENTER = CGPoint(x: 323.0, y: 138.5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Setup info for this module
-        topLeftModule.setupModuleInfo(image: UIImage(named: "weather"), moduleKey: TypeKeys.WEATHER, viewController: self)
-        topRightModule.setupModuleInfo(image: UIImage(named: "clock"), moduleKey: TypeKeys.CLOCK, viewController: self)
-        topModule.setupModuleInfo(image: UIImage(named: "quote"), moduleKey: TypeKeys.QUOTE, viewController: self)
-        bottomLeftModule.setupModuleInfo(image: UIImage(named: "tasks"), moduleKey: TypeKeys.TASKS, viewController: self)
-        bottomModule.setupModuleInfo(image: UIImage(named: "news"), moduleKey: TypeKeys.NEWS, viewController: self)
+        topLeftModule.setupModuleInfo(image: UIImage(named: "weather"), moduleKey: .WEATHER, viewController: self)
+        topRightModule.setupModuleInfo(image: UIImage(named: "clock"), moduleKey: .CLOCK, viewController: self)
+        topModule.setupModuleInfo(image: UIImage(named: "quote"), moduleKey: .QUOTE, viewController: self)
+        bottomLeftModule.setupModuleInfo(image: UIImage(named: "tasks"), moduleKey: .TASKS, viewController: self)
+        bottomModule.setupModuleInfo(image: UIImage(named: "news"), moduleKey: .NEWS, viewController: self)
         
         // Do not allow pan gestures on certain modules
         topModule.allowPan = false
@@ -57,6 +58,6 @@ class ViewController: UIViewController {
         
         // Load module info from key provided by sender
         let key = tapGesture.moduleType!
-//        moduleDetailController.loadInfo(module: modules[key]!)
+        moduleDetailController.module = APIControl.Modules[key]
     }
 }

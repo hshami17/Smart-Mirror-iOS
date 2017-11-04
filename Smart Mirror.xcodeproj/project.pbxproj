@@ -20,6 +20,7 @@
 		9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */; };
 		9FDFA52F1FAD87EC005A9D1D /* TypeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */; };
 		9FDFA5311FAE1798005A9D1D /* ModuleTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */; };
+		9FDFA5351FAE6FA8005A9D1D /* Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5341FAE6FA8005A9D1D /* Positions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControl.swift; sourceTree = "<group>"; };
 		9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeKeys.swift; sourceTree = "<group>"; };
 		9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTap.swift; sourceTree = "<group>"; };
+		9FDFA5341FAE6FA8005A9D1D /* Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Positions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +117,10 @@
 		9FDFA5291FAD541A005A9D1D /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */,
 				9FDFA5271FAD4D53005A9D1D /* ConfigKeys.swift */,
 				9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */,
-				9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */,
+				9FDFA5341FAE6FA8005A9D1D /* Positions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				9FDFA5241FAABCAB005A9D1D /* ModuleDetailViewController.swift in Sources */,
 				9FDFA5281FAD4D53005A9D1D /* ConfigKeys.swift in Sources */,
 				9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */,
+				9FDFA5351FAE6FA8005A9D1D /* Positions.swift in Sources */,
 				9FDFA5311FAE1798005A9D1D /* ModuleTap.swift in Sources */,
 				9FDFA5261FAD4C64005A9D1D /* Module.swift in Sources */,
 				9FDFA5221FA96551005A9D1D /* ModuleImageView.swift in Sources */,

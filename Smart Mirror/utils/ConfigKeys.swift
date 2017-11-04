@@ -13,15 +13,19 @@ enum ConfigKeys : String {
     case NAME = "NAME"
     case POSITION = "POSITION"
     case APIKEY = "APIKEY"
+    
     // Weather dict keys
     case ZIPCODEKEY = "ZIPCODEKEY"
     case ZIPCODE = "ZIPCODE"
+    
     // Task dict keys
     case CLIENTID = "CLIENTID"
     case LISTID = "LISTID"
+    
     // News dict keys
     case SOURCE = "SOURCE"
     case SORTBY = "SORTBY"
+    
     // Quote dict keys
     case CATEGORY = "CATEGORY"
 }

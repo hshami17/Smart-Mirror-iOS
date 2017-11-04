@@ -21,23 +21,27 @@ class ModuleImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         originCenter = self.center
-        setupPanGesture()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         originCenter = self.center
-        setupPanGesture()
     }
     
     func setupModuleInfo(image: UIImage?, moduleKey: TypeKeys, viewController: ViewController) {
         self.image = image
         self.moduleKey = moduleKey
         self.viewController = viewController
+        setup()
     }
     
     //MARK: Private Methods
-    private func setupPanGesture() {
+    private func setup() {
+        
+        setupGestures()
+    }
+    
+    private func setupGestures() {
         // Scale image accordng to UIImageView size
         self.contentMode = UIViewContentMode.scaleAspectFit
         self.isUserInteractionEnabled = true

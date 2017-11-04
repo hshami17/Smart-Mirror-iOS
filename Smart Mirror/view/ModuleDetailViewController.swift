@@ -11,15 +11,16 @@ import UIKit
 class ModuleDetailViewController: UIViewController {
     //MARK: Properties
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var name: UITextField!
+    var module: Module? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        loadInfo()
     }
 
-    public func loadInfo(module: Module) {
-        self.title = "TESTING"
+    private func loadInfo() {
+        name.text = module?.name
     }
     
     //MARK: Actions

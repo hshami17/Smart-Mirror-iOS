@@ -13,8 +13,9 @@ class Module {
     var name: String
     var position: String
     var apikey: String
+    var onMirror = true
     
-    init?(_ moduleInfo: [ConfigKeys: String]) {
+    init(moduleInfo: [ConfigKeys: String]) {
         self.name = moduleInfo[ConfigKeys.NAME]!
         self.position = moduleInfo[ConfigKeys.POSITION]!
         self.apikey = moduleInfo[ConfigKeys.APIKEY]!
