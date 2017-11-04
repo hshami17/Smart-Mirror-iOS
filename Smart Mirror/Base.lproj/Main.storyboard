@@ -21,32 +21,53 @@
                                 <rect key="frame" x="16" y="53" width="150" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="9k6-09-4o5" appends="YES" id="9ZZ-Hw-z5v"/>
-                                </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-IQ-GOC" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-IQ-GOC" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="lv3-xT-We5" appends="YES" id="3QQ-Lc-ZHC"/>
-                                </connections>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="aV4-0U-Gpl"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-cE-uu0" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
+                                <rect key="frame" x="209" y="276" width="150" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-YQ-dIN" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
+                                <rect key="frame" x="16" y="276" width="150" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8l9-tN-Gj1" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
                                 <rect key="frame" x="209" y="53" width="150" height="171"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="uSx-my-3mG" appends="YES" id="Vd5-h3-zkN"/>
-                                </connections>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-Yi-iok" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
+                                <rect key="frame" x="16" y="565" width="343" height="82"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="cH0-Jl-32j"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ClW-IQ-GOC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3p4-IH-NOx"/>
+                            <constraint firstItem="ClW-IQ-GOC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dyf-uc-KFx"/>
+                            <constraint firstItem="TW3-Yi-iok" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HZS-IA-DtS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TW3-Yi-iok" secondAttribute="trailing" constant="16" id="b3O-TW-j26"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TW3-Yi-iok" secondAttribute="bottom" constant="20" id="e6f-gh-8CX"/>
+                            <constraint firstItem="ClW-IQ-GOC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wdc-ue-TXH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yed-3E-NWO"/>
                     <connections>
+                        <outlet property="bottomLeftModule" destination="4IX-YQ-dIN" id="mhe-At-cgf"/>
+                        <outlet property="bottomModule" destination="TW3-Yi-iok" id="YPT-XC-ylf"/>
+                        <outlet property="bottomRightModule" destination="CNa-cE-uu0" id="dyL-dX-xTD"/>
                         <outlet property="topLeftModule" destination="dhp-Sx-eoO" id="cqg-Gx-ddg"/>
                         <outlet property="topModule" destination="ClW-IQ-GOC" id="8Ze-ql-Ede"/>
                         <outlet property="topRightModule" destination="8l9-tN-Gj1" id="yLx-hP-giv"/>
@@ -54,21 +75,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9k6-09-4o5" userLabel="Top Left Tap">
-                    <connections>
-                        <action selector="topLeftDetails:" destination="BYZ-38-t0r" id="fVn-Ro-eoU"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="uSx-my-3mG" userLabel="Top RIght Tap">
-                    <connections>
-                        <action selector="topRightDetails:" destination="BYZ-38-t0r" id="yFM-eH-NJA"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="lv3-xT-We5" userLabel="Top Tap">
-                    <connections>
-                        <action selector="topDetails:" destination="BYZ-38-t0r" id="nA1-Sz-ALe"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="152.80000000000001" y="-125.4872563718141"/>
         </scene>
@@ -80,13 +86,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V92-Rj-k7H">
-                                <rect key="frame" x="144" y="245" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cN3-io-SDE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -101,6 +100,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-29-hPG">
+                                <rect key="frame" x="87" y="159" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="3jp-B3-1Dr"/>
@@ -112,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhR-rw-QUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="-125"/>
+            <point key="canvasLocation" x="1032.8" y="-125.4872563718141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wy6-aT-5vO">

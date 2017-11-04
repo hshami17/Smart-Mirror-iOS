@@ -16,7 +16,10 @@
 		9FDFA5221FA96551005A9D1D /* ModuleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */; };
 		9FDFA5241FAABCAB005A9D1D /* ModuleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5231FAABCAB005A9D1D /* ModuleDetailViewController.swift */; };
 		9FDFA5261FAD4C64005A9D1D /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5251FAD4C64005A9D1D /* Module.swift */; };
-		9FDFA5281FAD4D53005A9D1D /* DictKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5271FAD4D53005A9D1D /* DictKeys.swift */; };
+		9FDFA5281FAD4D53005A9D1D /* ConfigKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5271FAD4D53005A9D1D /* ConfigKeys.swift */; };
+		9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */; };
+		9FDFA52F1FAD87EC005A9D1D /* TypeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */; };
+		9FDFA5311FAE1798005A9D1D /* ModuleTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +46,10 @@
 		9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleImageView.swift; sourceTree = "<group>"; };
 		9FDFA5231FAABCAB005A9D1D /* ModuleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleDetailViewController.swift; sourceTree = "<group>"; };
 		9FDFA5251FAD4C64005A9D1D /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
-		9FDFA5271FAD4D53005A9D1D /* DictKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictKeys.swift; sourceTree = "<group>"; };
+		9FDFA5271FAD4D53005A9D1D /* ConfigKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigKeys.swift; sourceTree = "<group>"; };
+		9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIControl.swift; sourceTree = "<group>"; };
+		9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeKeys.swift; sourceTree = "<group>"; };
+		9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +115,9 @@
 		9FDFA5291FAD541A005A9D1D /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				9FDFA5271FAD4D53005A9D1D /* DictKeys.swift */,
+				9FDFA5271FAD4D53005A9D1D /* ConfigKeys.swift */,
+				9FDFA52E1FAD87EC005A9D1D /* TypeKeys.swift */,
+				9FDFA52C1FAD73FF005A9D1D /* APIControl.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -117,9 +125,10 @@
 		9FDFA52A1FAD544C005A9D1D /* view */ = {
 			isa = PBXGroup;
 			children = (
-				9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */,
 				9FDFA5231FAABCAB005A9D1D /* ModuleDetailViewController.swift */,
 				9FDFA5031FA9651F005A9D1D /* ViewController.swift */,
+				9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */,
+				9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -230,9 +239,12 @@
 				9FDFA5041FA9651F005A9D1D /* ViewController.swift in Sources */,
 				9FDFA5021FA9651F005A9D1D /* AppDelegate.swift in Sources */,
 				9FDFA5241FAABCAB005A9D1D /* ModuleDetailViewController.swift in Sources */,
-				9FDFA5281FAD4D53005A9D1D /* DictKeys.swift in Sources */,
+				9FDFA5281FAD4D53005A9D1D /* ConfigKeys.swift in Sources */,
+				9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */,
+				9FDFA5311FAE1798005A9D1D /* ModuleTap.swift in Sources */,
 				9FDFA5261FAD4C64005A9D1D /* Module.swift in Sources */,
 				9FDFA5221FA96551005A9D1D /* ModuleImageView.swift in Sources */,
+				9FDFA52F1FAD87EC005A9D1D /* TypeKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

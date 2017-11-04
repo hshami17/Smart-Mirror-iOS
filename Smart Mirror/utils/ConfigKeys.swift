@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DictKeys: String {
+enum ConfigKeys : String {
     // General info dict keys
     case NAME = "NAME"
     case POSITION = "POSITION"
