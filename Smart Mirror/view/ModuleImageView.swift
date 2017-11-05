@@ -18,6 +18,17 @@ class ModuleImageView: UIImageView {
     var allowPan = true
     
     //MARK: Initialization
+    init(image: UIImage, moduleKey: TypeKeys, originCenter: CGPoint, viewController: ViewController) {
+        super.init(image: image)
+        let x = originCenter.x - (150.0 / 2)
+        let y = originCenter.y - (170.0 / 2)
+        self.frame = CGRect(x: x, y: y, width: 150.0, height: 170.0)
+        self.moduleKey = moduleKey
+        self.viewController = viewController
+        self.originCenter = originCenter
+        setupGestures()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         originCenter = self.center
@@ -32,15 +43,10 @@ class ModuleImageView: UIImageView {
         self.image = image
         self.moduleKey = moduleKey
         self.viewController = viewController
-        setup()
-    }
-    
-    //MARK: Private Methods
-    private func setup() {
-        
         setupGestures()
     }
     
+    //MARK: Private Methods
     private func setupGestures() {
         // Scale image accordng to UIImageView size
         self.contentMode = UIViewContentMode.scaleAspectFit
@@ -88,9 +94,7 @@ class ModuleImageView: UIImageView {
     }
     
     @objc func tapGesture(gesture: ModuleTap) {
-        if self.image != nil {
-            gesture.moduleType = self.moduleKey
-            viewController.callSegue(sender: gesture)
-        }
+        gesture.moduleType = self.moduleKey
+        viewController.callSegue(sender: gesture)
     }
 }

@@ -13,7 +13,8 @@ class Positions {
     static let TOPLEFT_CENTER = CGPoint(x: 91.0, y: 138.5)
     static let TOPRIGHT_CENTER = CGPoint(x: 323.0, y: 138.5)
     static let BOTTOMLEFT_CENTER = CGPoint(x: 91.0, y: 361.5)
-    static let BOTTOMRIGHT_CENTER = CGPoint(x: 323.0, y: 361.5)}
+    static let BOTTOMRIGHT_CENTER = CGPoint(x: 323.0, y: 361.5)
+}
 
 enum PositionStr : String {
     case TOP = "Top"

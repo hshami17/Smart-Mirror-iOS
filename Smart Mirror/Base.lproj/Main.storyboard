@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ECH-jQ-oif">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ECH-jQ-oif">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,32 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhp-Sx-eoO" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="16" y="53" width="150" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-IQ-GOC" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aV4-0U-Gpl"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CNa-cE-uu0" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="209" y="276" width="150" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4IX-YQ-dIN" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="16" y="276" width="150" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8l9-tN-Gj1" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="209" y="53" width="150" height="171"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-Yi-iok" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
                                 <rect key="frame" x="16" y="565" width="343" height="82"/>
@@ -65,12 +45,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="yed-3E-NWO"/>
                     <connections>
-                        <outlet property="bottomLeftModule" destination="4IX-YQ-dIN" id="mhe-At-cgf"/>
                         <outlet property="bottomModule" destination="TW3-Yi-iok" id="YPT-XC-ylf"/>
-                        <outlet property="bottomRightModule" destination="CNa-cE-uu0" id="dyL-dX-xTD"/>
-                        <outlet property="topLeftModule" destination="dhp-Sx-eoO" id="cqg-Gx-ddg"/>
                         <outlet property="topModule" destination="ClW-IQ-GOC" id="8Ze-ql-Ede"/>
-                        <outlet property="topRightModule" destination="8l9-tN-Gj1" id="yLx-hP-giv"/>
                         <segue destination="1mU-K6-ZFn" kind="show" identifier="ModuleDetail" id="oXC-EX-vgS"/>
                     </connections>
                 </viewController>
