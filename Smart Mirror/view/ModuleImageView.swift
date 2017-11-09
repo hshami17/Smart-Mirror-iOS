@@ -11,21 +11,25 @@ import UIKit
 class ModuleImageView: UIImageView {
     //MARK: Properties
     var moduleKey: TypeKeys!
-    var originCenter: CGPoint!
     var viewController: ViewController!
     var snap: UISnapBehavior!
     var animator: UIDynamicAnimator!
     var allowPan = true
     
+    var originCenter: CGPoint!
+    let width: CGFloat = 150.0
+    let height: CGFloat = 170.0
+    
     //MARK: Initialization
     init(image: UIImage, moduleKey: TypeKeys, originCenter: CGPoint, viewController: ViewController) {
         super.init(image: image)
-        let x = originCenter.x - (150.0 / 2)
-        let y = originCenter.y - (170.0 / 2)
-        self.frame = CGRect(x: x, y: y, width: 150.0, height: 170.0)
+        let x = originCenter.x - (width / 2)
+        let y = originCenter.y - (height / 2)
+        self.frame = CGRect(x: x, y: y, width: width, height: height)
         self.moduleKey = moduleKey
         self.viewController = viewController
         self.originCenter = originCenter
+//        setupMargins()
         setupGestures()
     }
     
@@ -37,6 +41,11 @@ class ModuleImageView: UIImageView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         originCenter = self.center
+    }
+    
+    func setupMargins() {
+        let margins = self.layoutMarginsGuide
+        viewController.view.trailingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
     }
     
     func setupModuleInfo(image: UIImage?, moduleKey: TypeKeys, viewController: ViewController) {
@@ -76,6 +85,13 @@ class ModuleImageView: UIImageView {
         if !allowPan {return}
         switch gesture.state {
             case UIGestureRecognizerState.began, UIGestureRecognizerState.changed:
+                // Check if ModuleImageView is intersecting with another ModuleImageView
+                for imageView in viewController.imageViews {
+                    let intersecting = (imageView != self && gesture.view!.frame.intersects(imageView.frame))
+                    self.layer.borderColor = intersecting ? UIColor.red.cgColor : UIColor.lightGray.cgColor
+                    self.layer.borderWidth = 1.0
+                    if (intersecting) {break}
+                }
                 // Move the view with the pan
                 let translation = gesture.translation(in: self)
                 gesture.view!.center = CGPoint(
@@ -87,6 +103,7 @@ class ModuleImageView: UIImageView {
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {
                     snapBackToOrigin()
+                    self.layer.borderColor = nil
                 }
             default:
                 print("NO PAN GESTURE STATES MATCHED")

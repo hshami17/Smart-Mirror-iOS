@@ -15,9 +15,13 @@ class ViewController: UIViewController {
 //    @IBOutlet weak var bottomLeftModule: ModuleImageView!
 //    @IBOutlet weak var bottomRightModule: ModuleImageView!
     @IBOutlet weak var bottomModule: ModuleImageView!
+    
+    var imageViews = [ModuleImageView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TEST CONFIGS
         let weatherModule = ModuleImageView(
             image: UIImage(named: "weather")!,
             moduleKey: .WEATHER,
@@ -39,7 +43,7 @@ class ViewController: UIViewController {
         self.view.addSubview(weatherModule)
         self.view.addSubview(clockModule)
         self.view.addSubview(taskModule)
-
+        
         // Setup info for this module
         topModule.setupModuleInfo(image: UIImage(named: "quote"), moduleKey: .QUOTE, viewController: self)
         bottomModule.setupModuleInfo(image: UIImage(named: "news"), moduleKey: .NEWS, viewController: self)
@@ -47,6 +51,8 @@ class ViewController: UIViewController {
         // Do not allow pan gestures on certain modules
         topModule.allowPan = false
         bottomModule.allowPan = false
+        
+        imageViews += [weatherModule, clockModule, taskModule, topModule, bottomModule]
     }
 
     func callSegue(sender: ModuleTap) {
