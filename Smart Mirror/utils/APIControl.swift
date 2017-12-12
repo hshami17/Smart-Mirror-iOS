@@ -14,24 +14,23 @@ class APIControl {
     static func pullConfiguration() {
         APIControl.loadTestData()
         
-        let urlStr = "https://newsapi.org/v1/articles?source=cnn&sortby=top&apiKey=1dc119526a584abfb70aad792be87582"
-        guard let url = URL(string: urlStr) else { fatalError("SHIT") }
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print (error!.localizedDescription)
-            }
-            
-            guard let data = data else { fatalError("SHIT") }
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-//                print(json)
-            }
-            catch let jsonErr {
-                print("Error serializing JSON: \(jsonErr)")
-            }
-        }.resume()
+//        guard let url = URL(string: urlStr) else { fatalError("SHIT") }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            if error != nil {
+//                print (error!.localizedDescription)
+//            }
+//
+//            guard let data = data else { fatalError("SHIT") }
+//
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+////                print(json)
+//            }
+//            catch let jsonErr {
+//                print("Error serializing JSON: \(jsonErr)")
+//            }
+//        }.resume()
     }
     
     // TESTING
