@@ -10,7 +10,7 @@ import UIKit
 
 class ModuleImageView: UIImageView {
     //MARK: Properties
-    var moduleKey: TypeKeys!
+    var module: Module!
     var viewController: ViewController!
     var snap: UISnapBehavior!
     var animator: UIDynamicAnimator!
@@ -21,12 +21,12 @@ class ModuleImageView: UIImageView {
     let height: CGFloat = 170.0
     
     //MARK: Initialization
-    init(image: UIImage, moduleKey: TypeKeys, originCenter: CGPoint, viewController: ViewController) {
+    init(image: UIImage, module: Module, originCenter: CGPoint, viewController: ViewController) {
         super.init(image: image)
         let x = originCenter.x - (width / 2)
         let y = originCenter.y - (height / 2)
         self.frame = CGRect(x: x, y: y, width: width, height: height)
-        self.moduleKey = moduleKey
+        self.module = module
         self.viewController = viewController
         self.originCenter = originCenter
 //        setupMargins()
@@ -48,9 +48,9 @@ class ModuleImageView: UIImageView {
         viewController.view.trailingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
     }
     
-    func setupModuleInfo(image: UIImage?, moduleKey: TypeKeys, viewController: ViewController) {
+    func setupModuleInfo(image: UIImage?, module: Module, viewController: ViewController) {
         self.image = image
-        self.moduleKey = moduleKey
+        self.module = module
         self.viewController = viewController
         setupGestures()
     }
@@ -84,7 +84,7 @@ class ModuleImageView: UIImageView {
     @objc func panGesture(gesture: UIPanGestureRecognizer) {
         if !allowPan {return}
         switch gesture.state {
-            case UIGestureRecognizerState.began, UIGestureRecognizerState.changed:
+            case .began, .changed:
                 // Check if ModuleImageView is intersecting with another ModuleImageView
                 for imageView in viewController.imageViews {
                     let intersecting = (imageView != self && gesture.view!.frame.intersects(imageView.frame))
@@ -99,7 +99,7 @@ class ModuleImageView: UIImageView {
                     y: gesture.view!.center.y + translation.y
                 )
                 gesture.setTranslation(CGPoint(x: 0, y: 0), in: self)
-            case UIGestureRecognizerState.ended:
+            case .ended:
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {
                     snapBackToOrigin()
@@ -111,7 +111,7 @@ class ModuleImageView: UIImageView {
     }
     
     @objc func tapGesture(gesture: ModuleTap) {
-        gesture.moduleType = self.moduleKey
+        gesture.module = self.module
         viewController.callSegue(sender: gesture)
     }
 }

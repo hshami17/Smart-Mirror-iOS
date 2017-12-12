@@ -20,23 +20,23 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+  
         // TEST CONFIGS
         let weatherModule = ModuleImageView(
             image: UIImage(named: "weather")!,
-            moduleKey: .WEATHER,
+            module: APIControl.Modules[.WEATHER]!,
             originCenter: Positions.TOPLEFT_CENTER,
             viewController: self)
         
         let clockModule = ModuleImageView(
             image: UIImage(named: "clock")!,
-            moduleKey: .CLOCK,
+            module: APIControl.Modules[.CLOCK]!,
             originCenter: Positions.TOPRIGHT_CENTER,
             viewController: self)
         
         let taskModule = ModuleImageView(
             image: UIImage(named: "tasks")!,
-            moduleKey: .TASKS,
+            module: APIControl.Modules[.TASKS]!,
             originCenter: Positions.BOTTOMLEFT_CENTER,
             viewController: self)
         
@@ -45,14 +45,30 @@ class ViewController: UIViewController {
         self.view.addSubview(taskModule)
         
         // Setup info for this module
-        topModule.setupModuleInfo(image: UIImage(named: "quote"), moduleKey: .QUOTE, viewController: self)
-        bottomModule.setupModuleInfo(image: UIImage(named: "news"), moduleKey: .NEWS, viewController: self)
+        topModule.setupModuleInfo(image: UIImage(named: "quote"), module: APIControl.Modules[.QUOTE]!, viewController: self)
+        bottomModule.setupModuleInfo(image: UIImage(named: "news"), module: APIControl.Modules[.NEWS]!, viewController: self)
         
         // Do not allow pan gestures on certain modules
         topModule.allowPan = false
         bottomModule.allowPan = false
         
         imageViews += [weatherModule, clockModule, taskModule, topModule, bottomModule]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar and status bar on this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        UIApplication.shared.isStatusBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar and status bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        UIApplication.shared.isStatusBarHidden = false
     }
 
     func callSegue(sender: ModuleTap) {
@@ -73,7 +89,6 @@ class ViewController: UIViewController {
         }
         
         // Load module info from key provided by sender
-        let key = tapGesture.moduleType!
-        moduleDetailController.module = APIControl.Modules[key]
+        moduleDetailController.module = tapGesture.module!
     }
 }

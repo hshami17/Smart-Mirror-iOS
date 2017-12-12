@@ -9,20 +9,32 @@
 import UIKit
 
 class ModuleDetailViewController: UIViewController {
-    //MARK: Properties
-    @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var name: UITextField!
-    var module: Module? = nil
     
+    //MARK: Properties
+    @IBOutlet weak var txtApiKey: UITextField!
+    var module: Module? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInfo()
+        self.title = module?.name
+        showModuleDetailsForModule()
     }
 
-    private func loadInfo() {
-        name.text = module?.name
+    private func showModuleDetailsForModule() {
+        switch module!.type {
+            case .WEATHER:
+                print("Show weather controls")
+            case .CLOCK:
+                print("Show clock controls")
+            case .NEWS:
+                print("Show news controls")
+            case .QUOTE:
+                print("Show quote controls")
+            case .TASKS:
+                print("Show task controls")
+        }
     }
-    
+
     //MARK: Actions
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         if let navController = navigationController {

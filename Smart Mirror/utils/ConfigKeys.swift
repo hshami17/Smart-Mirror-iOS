@@ -10,6 +10,7 @@ import Foundation
 
 enum ConfigKeys : String {
     // General info dict keys
+    case TYPE = "TYPE"
     case NAME = "NAME"
     case POSITION = "POSITION"
     case APIKEY = "APIKEY"

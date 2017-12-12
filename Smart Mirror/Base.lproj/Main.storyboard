@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ECH-jQ-oif">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ECH-jQ-oif">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,18 +14,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Smart_Mirror" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-IQ-GOC" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aV4-0U-Gpl"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-Yi-iok" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="16" y="565" width="343" height="82"/>
+                                <rect key="frame" x="16" y="634" width="382" height="82"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="cH0-Jl-32j"/>
@@ -59,50 +59,48 @@
             <objects>
                 <viewController id="1mU-K6-ZFn" customClass="ModuleDetailViewController" customModule="Smart_Mirror" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3OO-lX-7ZR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cN3-io-SDE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Module Details" id="0BU-IN-Pqb">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7dX-aU-DnY">
-                                            <connections>
-                                                <action selector="cancel:" destination="1mU-K6-ZFn" id="P9f-Ji-T00"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NgR-2t-GHC"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pB6-29-hPG">
-                                <rect key="frame" x="75" y="143" width="224" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Z4G-kQ-KcT">
+                                <rect key="frame" x="20" y="101" width="374" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="API Key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLE-Fd-O05" userLabel="apiKey">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z4G-kQ-KcT" firstAttribute="leading" secondItem="3jp-B3-1Dr" secondAttribute="leading" constant="20" id="OMR-Ow-fE9"/>
+                            <constraint firstItem="Z4G-kQ-KcT" firstAttribute="top" secondItem="3jp-B3-1Dr" secondAttribute="top" constant="37" id="YfH-ag-Fux"/>
+                            <constraint firstItem="3jp-B3-1Dr" firstAttribute="trailing" secondItem="Z4G-kQ-KcT" secondAttribute="trailing" constant="20" id="Zsc-Td-bw6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3jp-B3-1Dr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Zaj-Vu-Hae"/>
+                    <navigationItem key="navigationItem" id="Zaj-Vu-Hae">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Kns-e5-9o1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tZD-st-ho5"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="name" destination="pB6-29-hPG" id="G0r-YA-4Oo"/>
-                        <outlet property="navigationBar" destination="cN3-io-SDE" id="ABq-e8-Wvm"/>
+                        <outlet property="txtApiKey" destination="NLE-Fd-O05" id="ohh-kh-wWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhR-rw-QUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032.8" y="-125.4872563718141"/>
+            <point key="canvasLocation" x="1031.8840579710145" y="-125.54347826086958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wy6-aT-5vO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ECH-jQ-oif" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ECH-jQ-oif" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xzT-lo-t4u">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -10,14 +10,16 @@ import Foundation
 
 class Module {
     //MARK: Properties
+    var type: TypeKeys
     var name: String
     var position: String
     var apikey: String
     var onMirror = true
     
-    init(moduleInfo: [ConfigKeys: String]) {
-        self.name = moduleInfo[ConfigKeys.NAME]!
-        self.position = moduleInfo[ConfigKeys.POSITION]!
-        self.apikey = moduleInfo[ConfigKeys.APIKEY]!
+    init(type: TypeKeys, moduleInfo: [ConfigKeys: String]) {
+        self.type = type
+        self.name = moduleInfo[.NAME]!
+        self.position = moduleInfo[.POSITION]!
+        self.apikey = moduleInfo[.APIKEY]!
     }
 }

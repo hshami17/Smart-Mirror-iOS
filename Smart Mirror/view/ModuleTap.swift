@@ -9,5 +9,5 @@
 import UIKit
 
 class ModuleTap: UITapGestureRecognizer {
-    var moduleType: TypeKeys?
+    var module: Module!
 }
