@@ -10,12 +10,38 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: Properties
-//    @IBOutlet weak var topRightModule: ModuleImageView!
     @IBOutlet weak var topModule: ModuleImageView!
-//    @IBOutlet weak var bottomLeftModule: ModuleImageView!
-//    @IBOutlet weak var bottomRightModule: ModuleImageView!
     @IBOutlet weak var bottomModule: ModuleImageView!
     
+    let TOPLEFT_BOUNDS = CGRect(
+        x: Positions.TOPLEFT_CENTER.x - (50 / 2),
+        y: Positions.TOPLEFT_CENTER.y - (50 / 2),
+        width: 50,
+        height: 50
+    )
+    
+    let TOPRIGHT_BOUNDS = CGRect(
+        x: Positions.TOPRIGHT_CENTER.x - (50 / 2),
+        y: Positions.TOPRIGHT_CENTER.y - (50 / 2),
+        width: 50,
+        height: 50
+    )
+    
+    let BOTTOMLEFT_BOUNDS = CGRect(
+        x: Positions.BOTTOMLEFT_CENTER.x - (50 / 2),
+        y: Positions.BOTTOMLEFT_CENTER.y - (50 / 2),
+        width: 50,
+        height: 50
+    )
+    
+    let BOTTOMRIGHT_BOUNDS = CGRect(
+        x: Positions.BOTTOMRIGHT_CENTER.x - (50 / 2),
+        y: Positions.BOTTOMRIGHT_CENTER.y - (50 / 2),
+        width: 50,
+        height: 50
+    )
+    
+    var goodSpaces = [CGRect]()
     var imageViews = [ModuleImageView]()
 
     override func viewDidLoad() {
@@ -53,6 +79,7 @@ class ViewController: UIViewController {
         bottomModule.allowPan = false
         
         imageViews += [weatherModule, clockModule, taskModule, topModule, bottomModule]
+        goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
     }
     
     override func viewWillAppear(_ animated: Bool) {

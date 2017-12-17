@@ -12,11 +12,14 @@ class ModuleDetailViewController: UIViewController {
     
     //MARK: Properties
     @IBOutlet weak var txtApiKey: UITextField!
+    @IBOutlet weak var stackView: UIStackView!
+    
     var module: Module? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = module?.name
+        txtApiKey.text = module?.apikey
         showModuleDetailsForModule()
     }
 
@@ -32,16 +35,6 @@ class ModuleDetailViewController: UIViewController {
                 print("Show quote controls")
             case .TASKS:
                 print("Show task controls")
-        }
-    }
-
-    //MARK: Actions
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        if let navController = navigationController {
-            navController.popViewController(animated: true)
-        }
-        else {
-            print("ISSUE TRYING TO CANCEL")
         }
     }
     

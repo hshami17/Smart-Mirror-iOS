@@ -10,7 +10,7 @@ import UIKit
 
 class ModuleImageView: UIImageView {
     //MARK: Properties
-    var module: Module!
+    public var module: Module!
     var viewController: ViewController!
     var snap: UISnapBehavior!
     var animator: UIDynamicAnimator!
@@ -80,18 +80,70 @@ class ModuleImageView: UIImageView {
         animator.addBehavior(snap)
     }
     
+    private func checkArea(_ me: UIView) -> (goodSpace: Bool, intersecting: Bool, newSpace: CGRect) {
+        var goodSpace = false
+        var intersecting = false
+        var newSpace = CGRect()
+        // Go through all good spaces
+        for space in viewController.goodSpaces {
+            // Check if in good space
+            goodSpace = (me.center.x >= space.minX && me.center.x <= space.maxX &&
+                me.center.y >= space.minY && me.center.y <= space.maxY)
+            let spaceCenter = CGPoint(x: space.midX, y: space.midY)
+            if (goodSpace && spaceCenter == originCenter) {
+                goodSpace = false
+                intersecting = false
+                break
+            }
+            // Check if it is intersecting with another view
+            for imageView in viewController.imageViews {
+                intersecting = imageView != self && me.frame.intersects(imageView.frame)
+                if (intersecting) {break}
+            }
+            // Set new good space
+            if (goodSpace) {
+                newSpace = space
+            }
+            if (intersecting || goodSpace) {break}
+        }
+        return (goodSpace, intersecting, newSpace)
+    }
+    
+    private func setNewPosition() {
+        if (originCenter == Positions.TOPLEFT_CENTER) {
+            module.position = PositionStr.TOPLEFT.rawValue
+        }
+        else if (originCenter == Positions.TOPRIGHT_CENTER) {
+            module.position = PositionStr.TOPRIGHT.rawValue
+        }
+        else if (originCenter == Positions.BOTTOMLEFT_CENTER) {
+            module.position = PositionStr.BOTTOMLEFT.rawValue
+        }
+        else if (originCenter == Positions.BOTTOMRIGHT_CENTER) {
+            module.position = PositionStr.BOTTOMRIGHT.rawValue
+        }
+        
+        // Send POST request to web server 
+        APIControl.moduleUpdate(module)
+    }
+    
     //MARK: Actions
     @objc func panGesture(gesture: UIPanGestureRecognizer) {
         if !allowPan {return}
         switch gesture.state {
             case .began, .changed:
-                // Check if ModuleImageView is intersecting with another ModuleImageView
-                for imageView in viewController.imageViews {
-                    let intersecting = (imageView != self && gesture.view!.frame.intersects(imageView.frame))
-                    self.layer.borderColor = intersecting ? UIColor.red.cgColor : UIColor.lightGray.cgColor
-                    self.layer.borderWidth = 1.0
-                    if (intersecting) {break}
+                // Check if this view is currently in a good space
+                var borderColor = UIColor.gray.cgColor
+                let spaceCheck = checkArea(gesture.view!)
+                if (spaceCheck.goodSpace && !spaceCheck.intersecting) {
+                    borderColor = UIColor.green.cgColor
                 }
+                else if (spaceCheck.intersecting) {
+                    borderColor = UIColor.red.cgColor
+                }
+                self.layer.borderColor = borderColor
+                self.layer.borderWidth = 1.0
+                
                 // Move the view with the pan
                 let translation = gesture.translation(in: self)
                 gesture.view!.center = CGPoint(
@@ -100,10 +152,18 @@ class ModuleImageView: UIImageView {
                 )
                 gesture.setTranslation(CGPoint(x: 0, y: 0), in: self)
             case .ended:
+                // Check if this view can be moved to a new space
+                let spaceCheck = checkArea(gesture.view!)
+                if (spaceCheck.goodSpace && !spaceCheck.intersecting) {
+                    originCenter = CGPoint(x: spaceCheck.newSpace.midX, y: spaceCheck.newSpace.midY)
+                    setNewPosition()
+                    print(module.name + " new position is: \(module.position)")
+                }
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {
                     snapBackToOrigin()
                     self.layer.borderColor = nil
+                    self.layer.borderWidth = 0.0
                 }
             default:
                 print("NO PAN GESTURE STATES MATCHED")

@@ -33,7 +33,11 @@ class APIControl {
 //        }.resume()
     }
     
-    // TESTING
+    static func moduleUpdate(_ module: Module) {
+        
+    }
+    
+    // TESTING //
     private static func loadTestData() {
         var module = Module(type: .WEATHER,
             moduleInfo: [
