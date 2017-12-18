@@ -18,23 +18,29 @@ class ModuleDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = module?.name
-        txtApiKey.text = module?.apikey
+        txtApiKey.text = module?.key
         showModuleDetailsForModule()
     }
 
     private func showModuleDetailsForModule() {
-        switch module!.type {
-            case .WEATHER:
+        switch module!.name {
+            case APINames.DARK_SKY.rawValue:
+                 self.title = "Dark Sky"
                 print("Show weather controls")
-            case .CLOCK:
+            case APINames.CLOCK.rawValue:
+                 self.title = "Clock"
                 print("Show clock controls")
-            case .NEWS:
+            case APINames.NEWS_API.rawValue:
+                 self.title = "News API"
                 print("Show news controls")
-            case .QUOTE:
+            case APINames.RANDOM_FAMOUS_QUOTES.rawValue:
+                 self.title = "Random Famous Quotes"
                 print("Show quote controls")
-            case .TASKS:
+            case APINames.WUNDERLIST.rawValue:
+                 self.title = "Wunderlist"
                 print("Show task controls")
+            default:
+                print("UNKNOWN MODULE")
         }
     }
     

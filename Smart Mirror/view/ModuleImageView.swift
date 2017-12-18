@@ -15,20 +15,19 @@ class ModuleImageView: UIImageView {
     var snap: UISnapBehavior!
     var animator: UIDynamicAnimator!
     var allowPan = true
+    public var onMirror = true
     
     var originCenter: CGPoint!
     let width: CGFloat = 150.0
     let height: CGFloat = 170.0
     
     //MARK: Initialization
-    init(image: UIImage, module: Module, originCenter: CGPoint, viewController: ViewController) {
+    init(image: UIImage, module: Module, /*originCenter: CGPoint,*/ viewController: ViewController) {
         super.init(image: image)
-        let x = originCenter.x - (width / 2)
-        let y = originCenter.y - (height / 2)
-        self.frame = CGRect(x: x, y: y, width: width, height: height)
         self.module = module
         self.viewController = viewController
-        self.originCenter = originCenter
+//        self.originCenter = originCenter
+        initOriginCenter()
 //        setupMargins()
         setupGestures()
     }
@@ -41,6 +40,29 @@ class ModuleImageView: UIImageView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         originCenter = self.center
+    }
+    
+    func initOriginCenter() {
+        switch module.position {
+            case PositionStr.TOPLEFT.rawValue:
+                originCenter = Positions.TOPLEFT_CENTER
+            case PositionStr.TOPRIGHT.rawValue:
+                originCenter = Positions.TOPRIGHT_CENTER
+            case PositionStr.BOTTOMLEFT.rawValue:
+                originCenter = Positions.BOTTOMLEFT_CENTER
+            case PositionStr.BOTTOMRIGHT.rawValue:
+                originCenter = Positions.BOTTOMRIGHT_CENTER
+            case PositionStr.NONE.rawValue:
+                print("\(module.name) is not on mirror")
+                onMirror = false
+            default:
+                print("\(module.name) UNKNOWN POSITION")
+        }
+        if (onMirror) {
+            let x = originCenter.x - (width / 2)
+            let y = originCenter.y - (height / 2)
+            self.frame = CGRect(x: x, y: y, width: width, height: height)
+        }
     }
     
     func setupMargins() {
@@ -97,7 +119,7 @@ class ModuleImageView: UIImageView {
             }
             // Check if it is intersecting with another view
             for imageView in viewController.imageViews {
-                intersecting = imageView != self && me.frame.intersects(imageView.frame)
+                intersecting = imageView != self && imageView.onMirror && me.frame.intersects(imageView.frame)
                 if (intersecting) {break}
             }
             // Set new good space
@@ -157,7 +179,6 @@ class ModuleImageView: UIImageView {
                 if (spaceCheck.goodSpace && !spaceCheck.intersecting) {
                     originCenter = CGPoint(x: spaceCheck.newSpace.midX, y: spaceCheck.newSpace.midY)
                     setNewPosition()
-                    print(module.name + " new position is: \(module.position)")
                 }
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {

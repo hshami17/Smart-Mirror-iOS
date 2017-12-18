@@ -46,40 +46,41 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        // TEST CONFIGS
+        APIControl.pullConfiguration()
+        sleep(5)
+        
+        goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
         let weatherModule = ModuleImageView(
             image: UIImage(named: "weather")!,
-            module: APIControl.Modules[.WEATHER]!,
-            originCenter: Positions.TOPLEFT_CENTER,
+            module: APIControl.Modules[APINames.DARK_SKY.rawValue]!,
             viewController: self)
-        
+
         let clockModule = ModuleImageView(
             image: UIImage(named: "clock")!,
-            module: APIControl.Modules[.CLOCK]!,
-            originCenter: Positions.TOPRIGHT_CENTER,
+            module: APIControl.Modules[APINames.CLOCK.rawValue]!,
             viewController: self)
-        
+
         let taskModule = ModuleImageView(
             image: UIImage(named: "tasks")!,
-            module: APIControl.Modules[.TASKS]!,
-            originCenter: Positions.BOTTOMLEFT_CENTER,
+            module: APIControl.Modules[APINames.WUNDERLIST.rawValue]!,
             viewController: self)
-        
-        self.view.addSubview(weatherModule)
-        self.view.addSubview(clockModule)
-        self.view.addSubview(taskModule)
-        
+
         // Setup info for this module
-        topModule.setupModuleInfo(image: UIImage(named: "quote"), module: APIControl.Modules[.QUOTE]!, viewController: self)
-        bottomModule.setupModuleInfo(image: UIImage(named: "news"), module: APIControl.Modules[.NEWS]!, viewController: self)
+        topModule.setupModuleInfo(image: UIImage(named: "quote"), module: APIControl.Modules[APINames.RANDOM_FAMOUS_QUOTES.rawValue]!, viewController: self)
+        bottomModule.setupModuleInfo(image: UIImage(named: "news"), module: APIControl.Modules[APINames.NEWS_API.rawValue]!, viewController: self)
         
         // Do not allow pan gestures on certain modules
         topModule.allowPan = false
         bottomModule.allowPan = false
         
         imageViews += [weatherModule, clockModule, taskModule, topModule, bottomModule]
-        goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
+        
+        for imageView in imageViews {
+            if (imageView.onMirror) {
+                print("Putting \(imageView.module.name) on mirror")
+                self.view.addSubview(imageView)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

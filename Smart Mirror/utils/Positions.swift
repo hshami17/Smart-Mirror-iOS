@@ -17,10 +17,11 @@ class Positions {
 }
 
 enum PositionStr : String {
-    case TOP = "Top"
-    case TOPRIGHT = "Top Right"
-    case TOPLEFT = "Top Left"
-    case BOTTOMRIGHT = "Bottom Right"
-    case BOTTOMLEFT = "Bottom Left"
-    case BOTTOM = "Bottom"
+    case TOP = "top"
+    case TOPRIGHT = "topRight"
+    case TOPLEFT = "topLeft"
+    case BOTTOMRIGHT = "bottomRight"
+    case BOTTOMLEFT = "bottomLeft"
+    case BOTTOM = "bottom"
+    case NONE = "-"
 }
