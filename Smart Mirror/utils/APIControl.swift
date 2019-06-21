@@ -12,9 +12,9 @@ class APIControl {
     static var Modules = [String: Module]()
     
     static func pullConfiguration() {
-        let urlStr = "http://10.0.0.188:8080/api/getmirror"
+        let urlStr = "http://192.168.1.142:8080/api/getmirror"
         guard let url = URL(string: urlStr) else { fatalError("ERROR CREATING URL OBJECT") }
-
+        
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print (error!.localizedDescription)
@@ -28,17 +28,16 @@ class APIControl {
                 
                 // Save parsed data into module list
                 for module in moduleConfigs {
-                    print("SETTING MODULE: \(module.name)")
                     APIControl.Modules[module.name] = module
                 }
             }
             catch let jsonErr {
-                print("Error serializing JSON: \(jsonErr)")
+                print("Error deserializing JSON: \(jsonErr)")
             }
         }.resume()
     }
     
     static func moduleUpdate(_ module: Module) {
-        
+        // TODO: Send POST request to web server of update Module info
     }
 }

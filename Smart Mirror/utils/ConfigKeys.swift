@@ -14,7 +14,7 @@ enum ConfigKeys : String {
     case NAME = "NAME"
     case POSITION = "POSITION"
     case APIKEY = "APIKEY"
-    
+        
     // Weather dict keys
     case ZIPCODEKEY = "ZIPCODEKEY"
     case ZIPCODE = "ZIPCODE"

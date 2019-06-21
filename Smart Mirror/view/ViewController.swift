@@ -46,25 +46,55 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        APIControl.pullConfiguration()
-        sleep(5)
         
         goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
+        
+        if (!APIControl.Modules.isEmpty) {
+            // Initialize module views
+            initModules()
+            
+            // Place module views onto main view
+            for imageView in imageViews {
+                if (imageView.onMirror) {
+                    self.view.addSubview(imageView)
+                }
+            }
+        }
+        else {
+            let stackView = UIStackView()
+//            let x = UIScreen.main.bounds.width / 2
+//            let y = UIScreen.main.bounds.height / 2
+//
+//            stackView.frame = CGRect(x: x, y: y, width: 500, height: 500)
+
+            stackView.axis = .vertical
+            stackView.distribution = .fillEqually
+            stackView.spacing = 10
+
+            let testLabel = UILabel()
+            testLabel.text = "TESTING"
+            stackView.addArrangedSubview(testLabel)
+            self.view.addSubview(stackView)
+            print("NO MIRROR INFO PULLED")
+        }
+    }
+    
+    private func initModules() {
         let weatherModule = ModuleImageView(
             image: UIImage(named: "weather")!,
             module: APIControl.Modules[APINames.DARK_SKY.rawValue]!,
             viewController: self)
-
+        
         let clockModule = ModuleImageView(
             image: UIImage(named: "clock")!,
             module: APIControl.Modules[APINames.CLOCK.rawValue]!,
             viewController: self)
-
+        
         let taskModule = ModuleImageView(
             image: UIImage(named: "tasks")!,
             module: APIControl.Modules[APINames.WUNDERLIST.rawValue]!,
             viewController: self)
-
+        
         // Setup info for this module
         topModule.setupModuleInfo(image: UIImage(named: "quote"), module: APIControl.Modules[APINames.RANDOM_FAMOUS_QUOTES.rawValue]!, viewController: self)
         bottomModule.setupModuleInfo(image: UIImage(named: "news"), module: APIControl.Modules[APINames.NEWS_API.rawValue]!, viewController: self)
@@ -74,18 +104,11 @@ class ViewController: UIViewController {
         bottomModule.allowPan = false
         
         imageViews += [weatherModule, clockModule, taskModule, topModule, bottomModule]
-        
-        for imageView in imageViews {
-            if (imageView.onMirror) {
-                print("Putting \(imageView.module.name) on mirror")
-                self.view.addSubview(imageView)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Hide the navigation bar and status bar on this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         UIApplication.shared.isStatusBarHidden = true

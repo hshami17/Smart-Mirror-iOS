@@ -11,36 +11,49 @@ import UIKit
 class ModuleDetailViewController: UIViewController {
     
     //MARK: Properties
-    @IBOutlet weak var txtApiKey: UITextField!
     @IBOutlet weak var stackView: UIStackView!
     
     var module: Module? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtApiKey.text = module?.key
+        let txtApiKey = DetailsTextField(label: "API Key", text: module?.key ?? "", placeholder: "API Key")
+        stackView.addArrangedSubview(txtApiKey)
         showModuleDetailsForModule()
     }
-
+    
     private func showModuleDetailsForModule() {
         switch module!.name {
             case APINames.DARK_SKY.rawValue:
                  self.title = "Dark Sky"
-                print("Show weather controls")
+                 let txtZipcodeKey = DetailsTextField(label: "Zipcode Key", text: module?.zipcodekey ?? "", placeholder: "")
+                 let txtZipcode = DetailsTextField(label: "Zipcode", text: module?.zipcode ?? "", placeholder: "")
+                 addFieldsToStackView(fields: [txtZipcodeKey, txtZipcode])
             case APINames.CLOCK.rawValue:
                  self.title = "Clock"
-                print("Show clock controls")
+                 print("Show clock controls")
             case APINames.NEWS_API.rawValue:
                  self.title = "News API"
-                print("Show news controls")
+                 let txtSource = DetailsTextField(label: "Source", text: module?.source ?? "", placeholder: "")
+                 let txtSortBy = DetailsTextField(label: "Sort By", text: module?.sortBy ?? "", placeholder: "")
+                 addFieldsToStackView(fields: [txtSource, txtSortBy])
             case APINames.RANDOM_FAMOUS_QUOTES.rawValue:
                  self.title = "Random Famous Quotes"
-                print("Show quote controls")
+                 let txtCategory = DetailsTextField(label: "Category", text: module?.category ?? "", placeholder: "")
+                 addFieldsToStackView(fields: [txtCategory])
             case APINames.WUNDERLIST.rawValue:
                  self.title = "Wunderlist"
-                print("Show task controls")
+                 let txtClientId = DetailsTextField(label: "Client ID", text: module?.clientid ?? "", placeholder: "")
+                 let txtListId = DetailsTextField(label: "List ID", text: module?.listid ?? "", placeholder: "")
+                 addFieldsToStackView(fields: [txtClientId, txtListId])
             default:
                 print("UNKNOWN MODULE")
+        }
+    }
+    
+    private func addFieldsToStackView(fields: [DetailsTextField]) {
+        for field in fields {
+            stackView.addArrangedSubview(field)
         }
     }
     

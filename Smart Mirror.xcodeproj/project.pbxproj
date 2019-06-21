@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F09872622BCA4BC00752050 /* DetailsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09872522BCA4BC00752050 /* DetailsTextField.swift */; };
 		9FDFA5021FA9651F005A9D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5011FA9651F005A9D1D /* AppDelegate.swift */; };
 		9FDFA5041FA9651F005A9D1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFA5031FA9651F005A9D1D /* ViewController.swift */; };
 		9FDFA5071FA9651F005A9D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FDFA5051FA9651F005A9D1D /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F09872522BCA4BC00752050 /* DetailsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTextField.swift; sourceTree = "<group>"; };
 		9FDFA4FE1FA9651F005A9D1D /* Smart Mirror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Mirror.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FDFA5011FA9651F005A9D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FDFA5031FA9651F005A9D1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				9FDFA5031FA9651F005A9D1D /* ViewController.swift */,
 				9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */,
 				9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */,
+				9F09872522BCA4BC00752050 /* DetailsTextField.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -189,7 +192,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Hasan Shami";
 				TargetAttributes = {
 					9FDFA4FD1FA9651F005A9D1D = {
@@ -251,6 +254,7 @@
 				9FDFA5021FA9651F005A9D1D /* AppDelegate.swift in Sources */,
 				9FDFA5241FAABCAB005A9D1D /* ModuleDetailViewController.swift in Sources */,
 				9FDFA5281FAD4D53005A9D1D /* ConfigKeys.swift in Sources */,
+				9F09872622BCA4BC00752050 /* DetailsTextField.swift in Sources */,
 				9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */,
 				9FDFA5351FAE6FA8005A9D1D /* Positions.swift in Sources */,
 				9FDFA5311FAE1798005A9D1D /* ModuleTap.swift in Sources */,
@@ -312,6 +316,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -319,6 +324,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -369,6 +375,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -376,6 +383,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -20,15 +20,16 @@ class ModuleImageView: UIImageView {
     var originCenter: CGPoint!
     let width: CGFloat = 150.0
     let height: CGFloat = 170.0
+//    let width: CGFloat = 100.0
+//    let height: CGFloat = 120.0
     
     //MARK: Initialization
-    init(image: UIImage, module: Module, /*originCenter: CGPoint,*/ viewController: ViewController) {
+    init(image: UIImage, module: Module, viewController: ViewController) {
         super.init(image: image)
         self.module = module
         self.viewController = viewController
-//        self.originCenter = originCenter
         initOriginCenter()
-//        setupMargins()
+        setupMargins()
         setupGestures()
     }
     
@@ -53,7 +54,6 @@ class ModuleImageView: UIImageView {
             case PositionStr.BOTTOMRIGHT.rawValue:
                 originCenter = Positions.BOTTOMRIGHT_CENTER
             case PositionStr.NONE.rawValue:
-                print("\(module.name) is not on mirror")
                 onMirror = false
             default:
                 print("\(module.name) UNKNOWN POSITION")
@@ -66,8 +66,7 @@ class ModuleImageView: UIImageView {
     }
     
     func setupMargins() {
-        let margins = self.layoutMarginsGuide
-        viewController.view.trailingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 20).isActive = true
+        self.contentMode = .scaleAspectFit
     }
     
     func setupModuleInfo(image: UIImage?, module: Module, viewController: ViewController) {
@@ -85,7 +84,6 @@ class ModuleImageView: UIImageView {
         
         // Setup pan gesture
         let pan = UIPanGestureRecognizer(target: self, action: #selector(ModuleImageView.panGesture(gesture:)))
-        pan.maximumNumberOfTouches = 1
         pan.maximumNumberOfTouches = 1
         self.addGestureRecognizer(pan)
         
@@ -112,6 +110,7 @@ class ModuleImageView: UIImageView {
             goodSpace = (me.center.x >= space.minX && me.center.x <= space.maxX &&
                 me.center.y >= space.minY && me.center.y <= space.maxY)
             let spaceCenter = CGPoint(x: space.midX, y: space.midY)
+            // If over current space, then ignore this space
             if (goodSpace && spaceCenter == originCenter) {
                 goodSpace = false
                 intersecting = false
@@ -144,9 +143,6 @@ class ModuleImageView: UIImageView {
         else if (originCenter == Positions.BOTTOMRIGHT_CENTER) {
             module.position = PositionStr.BOTTOMRIGHT.rawValue
         }
-        
-        // Send POST request to web server 
-        APIControl.moduleUpdate(module)
     }
     
     //MARK: Actions
@@ -179,6 +175,9 @@ class ModuleImageView: UIImageView {
                 if (spaceCheck.goodSpace && !spaceCheck.intersecting) {
                     originCenter = CGPoint(x: spaceCheck.newSpace.midX, y: spaceCheck.newSpace.midY)
                     setNewPosition()
+                    
+                    // Send POST request to web server
+                    APIControl.moduleUpdate(module)
                 }
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {
