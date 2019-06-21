@@ -177,7 +177,7 @@ class ModuleImageView: UIImageView {
                     setNewPosition()
                     
                     // Send POST request to web server
-                    APIControl.moduleUpdate(module)
+                    APIControl.updateModule(module)
                 }
                 // If not in original center, snap back
                 if gesture.view!.center != originCenter {

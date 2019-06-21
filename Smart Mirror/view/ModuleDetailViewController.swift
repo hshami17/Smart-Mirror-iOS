@@ -28,7 +28,7 @@ class ModuleDetailViewController: UIViewController {
                  self.title = "Dark Sky"
                  let txtZipcodeKey = DetailsTextField(label: "Zipcode Key", text: module?.zipcodekey ?? "", placeholder: "")
                  let txtZipcode = DetailsTextField(label: "Zipcode", text: module?.zipcode ?? "", placeholder: "")
-                 addFieldsToStackView(fields: [txtZipcodeKey, txtZipcode])
+                 addFieldsToStackView([txtZipcodeKey, txtZipcode])
             case APINames.CLOCK.rawValue:
                  self.title = "Clock"
                  print("Show clock controls")
@@ -36,22 +36,22 @@ class ModuleDetailViewController: UIViewController {
                  self.title = "News API"
                  let txtSource = DetailsTextField(label: "Source", text: module?.source ?? "", placeholder: "")
                  let txtSortBy = DetailsTextField(label: "Sort By", text: module?.sortBy ?? "", placeholder: "")
-                 addFieldsToStackView(fields: [txtSource, txtSortBy])
+                 addFieldsToStackView([txtSource, txtSortBy])
             case APINames.RANDOM_FAMOUS_QUOTES.rawValue:
                  self.title = "Random Famous Quotes"
                  let txtCategory = DetailsTextField(label: "Category", text: module?.category ?? "", placeholder: "")
-                 addFieldsToStackView(fields: [txtCategory])
+                 addFieldsToStackView([txtCategory])
             case APINames.WUNDERLIST.rawValue:
                  self.title = "Wunderlist"
                  let txtClientId = DetailsTextField(label: "Client ID", text: module?.clientid ?? "", placeholder: "")
                  let txtListId = DetailsTextField(label: "List ID", text: module?.listid ?? "", placeholder: "")
-                 addFieldsToStackView(fields: [txtClientId, txtListId])
+                 addFieldsToStackView([txtClientId, txtListId])
             default:
                 print("UNKNOWN MODULE")
         }
     }
     
-    private func addFieldsToStackView(fields: [DetailsTextField]) {
+    private func addFieldsToStackView(_ fields: [DetailsTextField]) {
         for field in fields {
             stackView.addArrangedSubview(field)
         }
