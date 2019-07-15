@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class ViewController: UIViewController {
     //MARK: Properties
@@ -43,12 +44,25 @@ class ViewController: UIViewController {
     
     var goodSpaces = [CGRect]()
     var imageViews = [ModuleImageView]()
+    let animationView : AnimationView = {
+        let view = AnimationView(name: "loading")
+        view.play()
+        view.contentMode = .scaleAspectFit
+        view.loopMode = .loop
+        view.backgroundBehavior = .pauseAndRestore
+        return view
+    }()
+    
+    func setupLoadingAnimation() {
+        view.addSubview(animationView)
+        animationView.anchor(topAnchor: view.topAnchor, bottomAnchor: view.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
-        
+//        setupLoadingAnimation()
         if (!APIControl.Modules.isEmpty) {
             // Initialize module views
             initModules()
@@ -59,14 +73,8 @@ class ViewController: UIViewController {
                     self.view.addSubview(imageView)
                 }
             }
-        }
-        else {
+        } else {
             let stackView = UIStackView()
-//            let x = UIScreen.main.bounds.width / 2
-//            let y = UIScreen.main.bounds.height / 2
-//
-//            stackView.frame = CGRect(x: x, y: y, width: 500, height: 500)
-
             stackView.axis = .vertical
             stackView.distribution = .fillEqually
             stackView.spacing = 10
@@ -75,7 +83,6 @@ class ViewController: UIViewController {
             testLabel.text = "TESTING"
             stackView.addArrangedSubview(testLabel)
             self.view.addSubview(stackView)
-            print("NO MIRROR INFO PULLED")
         }
     }
     
@@ -111,7 +118,7 @@ class ViewController: UIViewController {
 
         // Hide the navigation bar and status bar on this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        UIApplication.shared.isStatusBarHidden = true
+//         UIApplication.shared.isStatusBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,7 +126,7 @@ class ViewController: UIViewController {
         
         // Show the navigation bar and status bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        UIApplication.shared.isStatusBarHidden = false
+//        UIApplication.shared.isStatusBarHidden = false
     }
 
     func callSegue(sender: ModuleTap) {

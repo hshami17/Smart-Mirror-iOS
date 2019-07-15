@@ -1,0 +1,6 @@
+framework module Pods_Smart_Mirror {
+  umbrella header "Pods-Smart Mirror-umbrella.h"
+
+  export *
+  module * { export * }
+}

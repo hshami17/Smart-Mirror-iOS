@@ -9,9 +9,9 @@
 import Foundation
 
 enum APINames : String {
-    case DARK_SKY = "weather"
-    case WUNDERLIST = "tasks"
+    case DARK_SKY = "darksky"
+    case WUNDERLIST = "wunderlist"
     case NEWS_API = "news"
-    case RANDOM_FAMOUS_QUOTES = "quote"
+    case RANDOM_FAMOUS_QUOTES = "random-famous-quote"
     case CLOCK = "clock"
 }

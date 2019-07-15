@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         APIControl.pullConfiguration()
         sleep(5)
+//        
+//        let view = ViewController()
+//        let navView = UINavigationController(rootViewController: view)
+//        window?.rootViewController = navView
         return true
     }
 

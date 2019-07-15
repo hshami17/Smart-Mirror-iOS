@@ -12,7 +12,7 @@ class APIControl {
     static var Modules = [String: Module]()
     
     static func pullConfiguration() {
-        let urlStr = "http://192.168.1.142:8080/api/getmirror" // TODO: Have a window/entry for user to enter the web service address
+        let urlStr = "http://192.168.1.156:8080/api/getmirror" // TODO: Have a window/entry for user to enter the web service address
         guard let url = URL(string: urlStr) else { fatalError("ERROR CREATING URL OBJECT") }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in

@@ -77,7 +77,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zaj-Vu-Hae">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Kns-e5-9o1"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tZD-st-ho5"/>
                     </navigationItem>
                     <connections>
                         <outlet property="stackView" destination="Z4G-kQ-KcT" id="nwf-70-aUs"/>
