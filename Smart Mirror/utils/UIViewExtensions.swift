@@ -37,6 +37,17 @@ extension UIView {
         }
     }
     
+    func anchorCenter(centerXAnchor: NSLayoutXAxisAnchor?, centerYAnchor: NSLayoutYAxisAnchor?, centerXpadding: CGFloat, centerYpadding: CGFloat){
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        if let centerXAnchor = centerXAnchor {
+            self.centerXAnchor.constraint(equalTo: centerXAnchor, constant: centerXpadding).isActive = true
+        }
+        if let centerYAnchor = centerYAnchor {
+            self.centerYAnchor.constraint(equalTo: centerYAnchor, constant: centerYpadding).isActive = true
+        }
+    }
+    
     func fadeIn(_ duration: TimeInterval = 0.3, delay: TimeInterval = 0.3, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0

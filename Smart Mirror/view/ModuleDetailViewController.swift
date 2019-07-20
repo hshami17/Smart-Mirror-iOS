@@ -54,31 +54,20 @@ class ModuleDetailViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    
     private func showModuleDetailsForModule() {
         switch module!.name {
             case APINames.DARK_SKY.rawValue:
-                 self.navigationItem.title = "Dark Sky"
-                 let txtZipcodeKey = DetailsTextField(label: "Zipcode Key", text: module?.zipcodekey ?? "", placeholder: "", icon: UIImage.zipcodeKeyIcon!)
-                 let txtZipcode = DetailsTextField(label: "Zipcode", text: module?.zipcode ?? "", placeholder: "",icon: UIImage.zipcodeIcon!)
-                 addFieldsToStackView([txtZipcodeKey, txtZipcode])
+                setupDarkSky()
             case APINames.CLOCK.rawValue:
                  self.navigationItem.title = "Clock"
                  print("Show clock controls")
             case APINames.NEWS_API.rawValue:
-
-                 self.navigationItem.title = "News API"
-                 let txtSource = DetailsTextField(label: "Source", text: module?.source ?? "", placeholder: "", icon: UIImage.sourceIcon!)
-                 let txtSortBy = DetailsTextField(label: "Sort By", text: module?.sortBy ?? "", placeholder: "", icon: UIImage.sortIcon!)
-                 addFieldsToStackView([txtSource, txtSortBy])
+                setupNews()
             case APINames.RANDOM_FAMOUS_QUOTES.rawValue:
-                 self.navigationItem.title = "Random Famous Quotes"
-                 let txtCategory = DetailsTextField(label: "Category", text: module?.category ?? "", placeholder: "", icon: UIImage.sourceIcon!)
-                 addFieldsToStackView([txtCategory])
+                setupQuotes()
             case APINames.WUNDERLIST.rawValue:
-                 self.navigationItem.title = "Wunderlist"
-                 let txtClientId = DetailsTextField(label: "Client ID", text: module?.clientid ?? "", placeholder: "", icon: UIImage.clientIcon!)
-                 let txtListId = DetailsTextField(label: "List ID", text: module?.listid ?? "", placeholder: "", icon: UIImage.listIcon!)
-                 addFieldsToStackView([txtClientId, txtListId])
+                setupWunderlist()
             default:
                 print("UNKNOWN MODULE")
         }
@@ -104,6 +93,36 @@ class ModuleDetailViewController: UIViewController {
 
 }
 
+// MARK: -API UI setup functions
+extension ModuleDetailViewController {
+    fileprivate func setupDarkSky() {
+        self.navigationItem.title = "Dark Sky"
+        let txtZipcodeKey = DetailsTextField(label: "Zipcode Key", text: module?.zipcodekey ?? "", placeholder: "", icon: UIImage.zipcodeKeyIcon!)
+        let txtZipcode = DetailsTextField(label: "Zipcode", text: module?.zipcode ?? "", placeholder: "",icon: UIImage.zipcodeIcon!)
+        addFieldsToStackView([txtZipcodeKey, txtZipcode])
+    }
+    
+    fileprivate func setupNews() {
+        self.navigationItem.title = "News API"
+        let txtSource = DetailsTextField(label: "Source", text: module?.source ?? "", placeholder: "", icon: UIImage.sourceIcon!)
+        let txtSortBy = DetailsTextField(label: "Sort By", text: module?.sortBy ?? "", placeholder: "", icon: UIImage.sortIcon!)
+        addFieldsToStackView([txtSource, txtSortBy])
+    }
+    
+    fileprivate func setupQuotes() {
+        self.navigationItem.title = "Random Famous Quotes"
+        let txtCategory = DetailsTextField(label: "Category", text: module?.category ?? "", placeholder: "", icon: UIImage.sourceIcon!)
+        addFieldsToStackView([txtCategory])
+    }
+    
+    fileprivate func setupWunderlist() {
+        self.navigationItem.title = "Wunderlist"
+        let txtClientId = DetailsTextField(label: "Client ID", text: module?.clientid ?? "", placeholder: "", icon: UIImage.clientIcon!)
+        let txtListId = DetailsTextField(label: "List ID", text: module?.listid ?? "", placeholder: "", icon: UIImage.listIcon!)
+        addFieldsToStackView([txtClientId, txtListId])
+    }
+}
+
 
 // MARK: Keyboard Functions
 extension ModuleDetailViewController {
@@ -114,7 +133,6 @@ extension ModuleDetailViewController {
     
     func setupKeyboardDismissal() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismissKeyboard)))
-
     }
     
     @objc func handleDismiss() {

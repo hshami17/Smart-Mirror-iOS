@@ -6,18 +6,19 @@
 //  Copyright © 2017 Hasan Shami. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class APIControl {
     static var Modules = [String: Module]()
     
-    static func pullConfiguration() {
-        let urlStr = "http://192.168.1.156:8080/api/getmirror" // TODO: Have a window/entry for user to enter the web service address
+    static func pullConfiguration(ipAddress: String) {
+        let urlStr = "http://\(ipAddress):8080/api/getmirror" // TODO: Have a window/entry for user to enter the web service address
         guard let url = URL(string: urlStr) else { fatalError("ERROR CREATING URL OBJECT") }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                print (error!.localizedDescription)
+                print ("ERROR: \(error!.localizedDescription)")
+                return
             }
 
             guard let jsonData = data else { fatalError("ERROR UNWRAPPING JSON DATA") }
