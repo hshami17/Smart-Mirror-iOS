@@ -27,6 +27,8 @@
 		B237057222D7EE10000145D3 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = B237057022D7EE0F000145D3 /* empty.json */; };
 		B237057422D7EF40000145D3 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B237057322D7EF40000145D3 /* UIViewExtensions.swift */; };
 		B2A826EF22DBFF84004FE926 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A826EE22DBFF84004FE926 /* UIImageExtensions.swift */; };
+		B2A826F122DC0DE0004FE926 /* PresentIPAddressEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A826F022DC0DE0004FE926 /* PresentIPAddressEntryViewController.swift */; };
+		B2A826F322DC0F24004FE926 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A826F222DC0F24004FE926 /* UserDefaultManager.swift */; };
 		B2C3EBA822D93B7A002C88AD /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3EBA722D93B7A002C88AD /* UIColor+theme.swift */; };
 		CE0CB9AF2CC0B21B683E270F /* Pods_Smart_Mirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236D995174E20021798EC906 /* Pods_Smart_Mirror.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		B237057022D7EE0F000145D3 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		B237057322D7EF40000145D3 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		B2A826EE22DBFF84004FE926 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		B2A826F022DC0DE0004FE926 /* PresentIPAddressEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentIPAddressEntryViewController.swift; sourceTree = "<group>"; };
+		B2A826F222DC0F24004FE926 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		B2C3EBA722D93B7A002C88AD /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		D8121D851616B40D9E6032A9 /* Pods-Smart MirrorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart MirrorUITests.debug.xcconfig"; path = "Target Support Files/Pods-Smart MirrorUITests/Pods-Smart MirrorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EECA42A9CF7C8C765B070BDF /* Pods_Smart_MirrorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_MirrorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +164,7 @@
 				B237057322D7EF40000145D3 /* UIViewExtensions.swift */,
 				B2C3EBA722D93B7A002C88AD /* UIColor+theme.swift */,
 				B2A826EE22DBFF84004FE926 /* UIImageExtensions.swift */,
+				B2A826F222DC0F24004FE926 /* UserDefaultManager.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				9FDFA5211FA96551005A9D1D /* ModuleImageView.swift */,
 				9FDFA5301FAE1798005A9D1D /* ModuleTap.swift */,
 				9F09872522BCA4BC00752050 /* DetailsTextField.swift */,
+				B2A826F022DC0DE0004FE926 /* PresentIPAddressEntryViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -377,8 +383,10 @@
 			files = (
 				9FDFA5041FA9651F005A9D1D /* ViewController.swift in Sources */,
 				9FDFA5021FA9651F005A9D1D /* AppDelegate.swift in Sources */,
+				B2A826F322DC0F24004FE926 /* UserDefaultManager.swift in Sources */,
 				9FDFA5241FAABCAB005A9D1D /* ModuleDetailViewController.swift in Sources */,
 				9FDFA5281FAD4D53005A9D1D /* ConfigKeys.swift in Sources */,
+				B2A826F122DC0DE0004FE926 /* PresentIPAddressEntryViewController.swift in Sources */,
 				9F09872622BCA4BC00752050 /* DetailsTextField.swift in Sources */,
 				B2C3EBA822D93B7A002C88AD /* UIColor+theme.swift in Sources */,
 				9FDFA52D1FAD73FF005A9D1D /* APIControl.swift in Sources */,

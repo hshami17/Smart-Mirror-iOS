@@ -9,7 +9,11 @@
 import UIKit
 import Lottie
 
-class ViewController: UIViewController {
+protocol IPAddressDelegate {
+    func reload()
+}
+
+class ViewController: UIViewController, IPAddressDelegate {
     //MARK: Properties
     @IBOutlet weak var topModule: ModuleImageView!
     @IBOutlet weak var bottomModule: ModuleImageView!
@@ -58,13 +62,21 @@ class ViewController: UIViewController {
         animationView.anchor(topAnchor: view.topAnchor, bottomAnchor: view.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
     }
 
+    fileprivate func presentIPAddressEntryViewController() {
+        let view = PresentIPAddressEntryViewController()
+        let navView = UINavigationController(rootViewController: view)
+        navView.modalPresentationStyle = .overCurrentContext
+        self.present(navView, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         goodSpaces += [TOPLEFT_BOUNDS, TOPRIGHT_BOUNDS, BOTTOMLEFT_BOUNDS, BOTTOMRIGHT_BOUNDS]
-//        setupLoadingAnimation()
+        let ipAddress = UserDefaultManager.getSmartMirrorAPI()
         if (!APIControl.Modules.isEmpty) {
             // Initialize module views
+            APIControl.pullConfiguration(ipAddress: ipAddress)
             initModules()
             
             // Place module views onto main view
@@ -74,16 +86,12 @@ class ViewController: UIViewController {
                 }
             }
         } else {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.distribution = .fillEqually
-            stackView.spacing = 10
-
-            let testLabel = UILabel()
-            testLabel.text = "TESTING"
-            stackView.addArrangedSubview(testLabel)
-            self.view.addSubview(stackView)
+            presentIPAddressEntryViewController()
         }
+    }
+    
+    func reload() {
+        //
     }
     
     private func initModules() {

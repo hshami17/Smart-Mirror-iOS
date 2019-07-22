@@ -19,11 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ClW-IQ-GOC" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="45"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="aV4-0U-Gpl"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="AW0-Qw-pMq"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TW3-Yi-iok" customClass="ModuleImageView" customModule="Smart_Mirror" customModuleProvider="target">
                                 <rect key="frame" x="16" y="634" width="382" height="82"/>
@@ -31,11 +32,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="82" id="cH0-Jl-32j"/>
                                 </constraints>
+                                <viewLayoutGuide key="safeArea" id="5iw-JI-ECR"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ClW-IQ-GOC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3p4-IH-NOx"/>
+                            <constraint firstItem="ClW-IQ-GOC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="4cR-te-eJP"/>
                             <constraint firstItem="ClW-IQ-GOC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dyf-uc-KFx"/>
                             <constraint firstItem="TW3-Yi-iok" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HZS-IA-DtS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TW3-Yi-iok" secondAttribute="trailing" constant="16" id="b3O-TW-j26"/>
