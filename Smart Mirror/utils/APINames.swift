@@ -14,4 +14,5 @@ enum APINames : String {
     case NEWS_API = "news"
     case RANDOM_FAMOUS_QUOTES = "random-famous-quote"
     case CLOCK = "clock"
+    case SPOTIFY = "spotify"
 }

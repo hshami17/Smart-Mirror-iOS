@@ -20,7 +20,7 @@ class DetailsTextField : UITextField {
     func setupAPITextfield(placeholder: String, text: String) {
         let apiAttributedText = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: textSize, weight: .ultraLight)])
         self.backgroundColor = UIColor.white.withAlphaComponent(0.1)
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 4
         self.attributedText = apiAttributedText
         self.placeholder = placeholder
         self.clearButtonMode = .whileEditing
@@ -35,7 +35,7 @@ class DetailsTextField : UITextField {
             iconImageView.frame = CGRect(x: 0.0, y: 0.0, width: size.width + 10.0, height: size.height) // Adds padding to icon
         }
         textLabel.leftView = iconImageView
-        textLabel.leftViewMode = UITextFieldViewMode.always
+        textLabel.leftViewMode = UITextField.ViewMode.always
         textLabel.attributedText = attributedText
         self.addSubview(textLabel)
         textLabel.anchor(topAnchor: nil, bottomAnchor: self.topAnchor, leadingAnchor: self.leadingAnchor, trailingAnchor: self.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 38)

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Lottie
+//import Lottie
 
 protocol IPAddressDelegate {
     func reload()
@@ -48,18 +48,18 @@ class ViewController: UIViewController, IPAddressDelegate {
     
     var goodSpaces = [CGRect]()
     var imageViews = [ModuleImageView]()
-    let animationView : AnimationView = {
-        let view = AnimationView(name: "loading")
-        view.play()
-        view.contentMode = .scaleAspectFit
-        view.loopMode = .loop
-        view.backgroundBehavior = .pauseAndRestore
-        return view
-    }()
+//    let animationView : AnimationView = {
+//        let view = AnimationView(name: "loading")
+//        view.play()
+//        view.contentMode = .scaleAspectFit
+//        view.loopMode = .loop
+//        view.backgroundBehavior = .pauseAndRestore
+//        return view
+//    }()
     
     func setupLoadingAnimation() {
-        view.addSubview(animationView)
-        animationView.anchor(topAnchor: view.topAnchor, bottomAnchor: view.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
+//        view.addSubview(animationView)
+//        animationView.anchor(topAnchor: view.topAnchor, bottomAnchor: view.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 0)
     }
 
     fileprivate func presentIPAddressEntryViewController() {

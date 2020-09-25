@@ -17,7 +17,7 @@ class Module: Decodable {
     // Dark Sky
     var zipcode: String?
     var zipcodekey: String?
-    
+        
     // Wunderlist
     var clientid: String?
     var listid: String?

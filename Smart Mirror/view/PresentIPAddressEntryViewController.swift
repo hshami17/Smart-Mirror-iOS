@@ -23,7 +23,7 @@ class PresentIPAddressEntryViewController: UIViewController {
     
     var entryField : UITextField = {
         let textfield = UITextField()
-        textfield.textAlignment = .left
+        textfield.textAlignment = .center
         textfield.textColor = .white
         textfield.keyboardType = UIKeyboardType.decimalPad
         textfield.keyboardAppearance = UIKeyboardAppearance.dark

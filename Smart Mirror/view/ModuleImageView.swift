@@ -79,7 +79,7 @@ class ModuleImageView: UIImageView {
     //MARK: Private Methods
     private func setupGestures() {
         // Scale image accordng to UIImageView size
-        self.contentMode = UIViewContentMode.scaleAspectFit
+        self.contentMode = UIView.ContentMode.scaleAspectFit
         self.isUserInteractionEnabled = true
         
         // Setup pan gesture
